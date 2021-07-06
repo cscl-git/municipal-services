@@ -240,7 +240,7 @@ public class BookingsServiceImpl implements BookingsService {
 	 * @param bookingsRequest the bookings request
 	 * @return the map
 	 */
-	private Map<String, MdmsJsonFields> mdmsJsonField(BookingsRequest bookingsRequest) {
+	public Map<String, MdmsJsonFields> mdmsJsonField(BookingsRequest bookingsRequest) {
 		JSONArray mdmsArrayList = null;
 		Map<String, MdmsJsonFields> mdmsJsonFieldsMap = new HashMap<>();
 		try {

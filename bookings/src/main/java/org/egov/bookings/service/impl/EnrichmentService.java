@@ -1153,7 +1153,8 @@ public class EnrichmentService {
 		for (TimeslotsModel timeslots1 : extractedTimeSlots) {
 			for (TimeslotsModel timeslots : bookingsRequest.getBookingsModel().getTimeslots()) {
 				if (timeslots1.getSlot().equals(timeslots.getSlot())) {
-					bookedDates.add(Date.valueOf(LocalDate.now()));
+//					bookedDates.add(Date.valueOf(LocalDate.now()));
+					bookedDates.add(bookingsRequest.getBookingsModel().getBkFromDate());
 					return bookedDates;
 				}
 			}
@@ -1166,7 +1167,9 @@ public class EnrichmentService {
 			BookingsRequest bookingsRequest) {
 		List<TimeslotsModel> extractedTimeSlots = new ArrayList<>();
 		for (BookingsModel model : bookingsModelList) {
-			extractedTimeSlots.addAll(model.getTimeslots());
+			if(bookingsRequest.getBookingsModel().getBkFromDate() == model.getBkFromDate()) {
+				extractedTimeSlots.addAll(model.getTimeslots());
+			}
 		}
 		return extractedTimeSlots;
 	}

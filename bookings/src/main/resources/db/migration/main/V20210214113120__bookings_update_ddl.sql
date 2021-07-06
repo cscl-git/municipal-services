@@ -112,3 +112,25 @@ CREATE TABLE public.bk_booking_lock_dates (
 
 alter table bk_booking_lock_dates add from_date date NULL;
 alter table bk_booking_lock_dates add to_date date NULL;
+
+ALTER TABLE bk_bookings ADD COLUMN payment_collection_type varchar(255) NULL,
+ADD COLUMN paid_by varchar(255) NULL,
+ADD COLUMN payer_name varchar(255) NULL,
+ADD COLUMN payer_mobile_number varchar(255) NULL,
+ADD COLUMN cheque_number varchar(255) NULL,
+ADD COLUMN payment_date varchar(255) NULL,
+ADD COLUMN ifsc_code varchar(255) NULL,
+ADD COLUMN bank_name varchar(255) NULL,
+ADD COLUMN bank_branch varchar(255) NULL;
+
+ALTER TABLE bk_rooms_model ADD COLUMN payment_collection_type varchar(255) NULL,
+ADD COLUMN paid_by varchar(255) NULL,
+ADD COLUMN payer_name varchar(255) NULL,
+ADD COLUMN payer_mobile_number varchar(255) NULL,
+ADD COLUMN cheque_number varchar(255) NULL,
+ADD COLUMN payment_date varchar(255) NULL,
+ADD COLUMN ifsc_code varchar(255) NULL,
+ADD COLUMN bank_name varchar(255) NULL,
+ADD COLUMN bank_branch varchar(255) NULL,
+ADD COLUMN transaction_number varchar(255) NULL,
+ADD COLUMN card_number varchar(255) NULL;

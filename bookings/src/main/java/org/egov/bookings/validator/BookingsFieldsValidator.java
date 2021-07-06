@@ -736,10 +736,6 @@ public class BookingsFieldsValidator {
 		if (BookingsFieldsValidator.isNullOrEmpty(bookingsRequest.getBookingsModel().getBkApplicationNumber())) {
 			throw new IllegalArgumentException("Invalid Card Details Can't be null or blank");
 		}
-		
-		if (BookingsFieldsValidator.isNullOrEmpty(bookingsRequest.getBookingsModel().getCardNumber())) {
-			throw new IllegalArgumentException("Invalid Card Details Can't be null or blank");
-		}
 	}
 
 	public void validateBookingLockDetails(BookingLockRequest bookingLockRequest) {
@@ -775,4 +771,5 @@ public class BookingsFieldsValidator {
 			}
 		}
 	}
+	
 }

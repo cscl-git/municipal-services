@@ -5,17 +5,13 @@ import java.util.Map;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.egov.bookings.common.model.ResponseModel;
-import org.egov.bookings.contract.CommercialGroundFeeSearchCriteria;
 import org.egov.bookings.contract.RoomFeeFetchRequest;
 import org.egov.bookings.contract.RoomFeeFetchResponse;
 import org.egov.bookings.dto.SearchCriteriaFieldsDTO;
 import org.egov.bookings.model.BookingsModel;
-import org.egov.bookings.model.CommercialGroundFeeModel;
-import org.egov.bookings.model.RoomMasterModel;
 import org.egov.bookings.service.RoomsService;
 import org.egov.bookings.validator.BookingsFieldsValidator;
 import org.egov.bookings.web.models.BookingsRequest;
-import org.egov.common.contract.request.RequestInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +19,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RoomsController.
+ */
 @RestController
 @RequestMapping("/community/room")
 public class RoomsController {
@@ -30,12 +30,20 @@ public class RoomsController {
 	/** The Constant LOGGER. */
 	private static final Logger LOGGER = LogManager.getLogger( RoomsController.class.getName() );
 	
+	/** The bookings fields validator. */
 	@Autowired
 	private BookingsFieldsValidator bookingsFieldsValidator;
 
+	/** The rooms service. */
 	@Autowired
 	private RoomsService roomsService;
 	
+	/**
+	 * Creates the room for community booking.
+	 *
+	 * @param bookingsRequest the bookings request
+	 * @return the response entity
+	 */
 	@PostMapping("_create")
 	private ResponseEntity<?> createRoomForCommunityBooking(@RequestBody BookingsRequest bookingsRequest) {
 
@@ -56,6 +64,12 @@ public class RoomsController {
 	}
 
 	
+	/**
+	 * Update room for community booking.
+	 *
+	 * @param bookingsRequest the bookings request
+	 * @return the response entity
+	 */
 	@PostMapping("_update")
 	private ResponseEntity<?> updateRoomForCommunityBooking(@RequestBody BookingsRequest bookingsRequest) {
 
@@ -78,7 +92,7 @@ public class RoomsController {
 	/**
 	 * Community center room availbility fetch.
 	 *
-	 * @param roomAvailabilityFetchDto the room availability fetch dto
+	 * @param searchCreteriaFieldDto the search creteria field dto
 	 * @return the response entity
 	 */
 	@PostMapping(value = "/availability/_fetch")
@@ -108,6 +122,12 @@ public class RoomsController {
 	
 	
 	
+	/**
+	 * Fetch room fee.
+	 *
+	 * @param roomFeeFetchRequest the room fee fetch request
+	 * @return the response entity
+	 */
 	@PostMapping("/fee/_fetch")
 	private ResponseEntity<?> fetchRoomFee(
 			@RequestBody RoomFeeFetchRequest roomFeeFetchRequest) {
@@ -123,5 +143,4 @@ public class RoomsController {
 		
 		return ResponseEntity.ok(rs);
 	}
-	
 }

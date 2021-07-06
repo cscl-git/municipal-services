@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -80,5 +79,38 @@ public class RoomsModel {
 	
 	@Column(name = "room_created_date")
 	private String roomCreatedDate;
+	
+	@Column(name = "CARD_NUMBER")
+	private String cardNumber;
+	
+	@Column(name = "TRANSACTION_NUMBER")
+	private String transactionNumber;
+	
+	@Column(name = "PAYMENT_COLLECTION_TYPE")
+	private String paymentCollectionType;
+	
+	@Column(name = "PAID_BY")
+	private String paidBy;
+	
+	@Column(name = "PAYER_NAME")
+	private String payerName;
+	
+	@Column(name = "PAYER_MOBILE_NUMBER")
+	private String payerMobileNumber;
+	
+	@Column(name = "CHEQUE_NUMBER")
+	private String chequeNumber;
+	
+	@Column(name = "PAYMENT_DATE")
+	private String paymentDate;
+	
+	@Column(name = "IFSC_CODE")
+	private String ifscCode;
+	
+	@Column(name = "BANK_NAME")
+	private String bankName;
+	
+	@Column(name = "BANK_BRANCH")
+	private String bankBranch;
 
 }

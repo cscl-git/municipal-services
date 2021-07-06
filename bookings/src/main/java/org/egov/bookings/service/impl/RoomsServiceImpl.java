@@ -31,6 +31,7 @@ import org.egov.bookings.service.BookingsService;
 import org.egov.bookings.service.RoomsService;
 import org.egov.bookings.utils.BookingsCalculatorConstants;
 import org.egov.bookings.utils.BookingsConstants;
+import org.egov.bookings.utils.BookingsUtils;
 import org.egov.bookings.validator.BookingsFieldsValidator;
 import org.egov.bookings.web.models.BookingsRequest;
 import org.egov.bookings.workflow.WorkflowIntegrator;
@@ -69,10 +70,17 @@ public class RoomsServiceImpl implements RoomsService {
 	/** The bookings service. */
 	@Autowired
 	private BookingsService bookingsService;
+	
+	/** The bookings utils. */
+	@Autowired
+	private BookingsUtils bookingsUtils;
 
 	/** The park community hall V 1 master repository. */
 	@Autowired
 	private ParkCommunityHallV1MasterRepository parkCommunityHallV1MasterRepository;
+	
+	@Autowired
+	private BookingsFieldsValidator bookingsFieldsValidator;
 	
 	@Override
 	public BookingsModel createRoomForCommunityBooking(BookingsRequest bookingsRequest) {
@@ -100,6 +108,10 @@ public class RoomsServiceImpl implements RoomsService {
 			bookingsProducer.push(config.getUpdateRoomDetails(), kafkaBookingRequest);	
 		}
 		if (!BookingsFieldsValidator.isNullOrEmpty(bookingsRequest.getBookingsModel().getRoomsModel())) {
+			String applicantName = bookingsRequest.getBookingsModel().getBkApplicantName().trim();
+			if (!BookingsFieldsValidator.isNullOrEmpty(applicantName)) {
+				bookingsRequest.getBookingsModel().setBkApplicantName(applicantName.split(" ")[0]);
+			}
 			if(!BookingsFieldsValidator.isNullOrEmpty(bookingObject.getRoomsModel()) && !BookingsConstants.INITIATED.equals(bookingObject.getRoomsModel().get(0).getRoomApplicationStatus())) {
 				bookingsProducer.push(config.getSaveRoomBookingSMSTopic(), bookingsRequest);
 			}
@@ -227,6 +239,10 @@ public class RoomsServiceImpl implements RoomsService {
 			bookingsProducer.push(config.getUpdateRoomDetails(), kafkaBookingRequest);	
 		//br.save(bookingsRequest.getBookingsModel());
 		if (!BookingsFieldsValidator.isNullOrEmpty(bookingsRequest.getBookingsModel().getRoomsModel())) {
+			String applicantName = bookingsRequest.getBookingsModel().getBkApplicantName().trim();
+			if (!BookingsFieldsValidator.isNullOrEmpty(applicantName)) {
+				bookingsRequest.getBookingsModel().setBkApplicantName(applicantName.split(" ")[0]);
+			}
 			bookingsProducer.push(config.getUpdateRoomBookingSMSTopic(), bookingsRequest);
 		}
 		return bookingsRequest.getBookingsModel();

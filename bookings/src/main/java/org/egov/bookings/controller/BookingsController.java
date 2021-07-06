@@ -396,7 +396,7 @@ public class BookingsController {
 			@RequestBody BookingsRequest bookingsRequest) {
 
 		
-		//bookingsFieldsValidator.validateBookingCardDetails(bookingsRequest);
+		bookingsFieldsValidator.validateBookingCardDetails(bookingsRequest);
 		BookingsModel bookingsModel = bookingsService.saveCardDetails(bookingsRequest);
 		ResponseModel rs = new ResponseModel();
 		if (bookingsModel == null) {
