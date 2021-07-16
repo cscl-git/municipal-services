@@ -1,5 +1,6 @@
 package org.egov.integration.config;
 
+import java.math.BigDecimal;
 import java.util.TimeZone;
 
 import javax.annotation.PostConstruct;
@@ -87,4 +88,44 @@ public class ApiConfiguration {
 	
 	@Value("${url.shortner.key}")
 	private String urlShortnerKey;
+	
+	@Value("${ehrms.payslip.host}")
+	private String PayslipHost;
+	
+	
+	@Value("${egov.demand.create.endpoint}")
+	private String demandCreateEndpoint;
+	
+	@Value("${egov.demand.update.endpoint}")
+	private String demandUpdateEndpoint;
+	
+	@Value("${egov.billingservice.host}")
+	private String billingHost;
+	
+	@Value("${egov.billingservice.fetchBillEndpoint}")
+	private String fetchBillEndpoint;
+	
+	@Value("${egov.demand.minimum.payable.amount}")
+	private BigDecimal minimumPayableAmount;
+	
+	
+	
+	@Value("${egov.demand.search.endpoint}")
+	private String demandSearchEndpoint;
+	
+	@Value("${egov.service.search.endpoint}")
+	private String billingSearchHost;
+	
+	@Value("${egov.payemnt.create.host}")
+	private String collectionHost;
+	
+	@Value("${egov.service.payment.create.endpoint}")
+	private String createPaymentEndpoint;
+	
+	@Value("${egov.service.opms.host}")
+	private String OPMSHost;
+	
+	
+	
+	
 }

@@ -99,6 +99,10 @@ public class SmidShgRepository {
 						statusEmplyee.add(SmidShgGroup.StatusEnum.APPROVED.toString());
 						statusEmplyee.add(SmidShgGroup.StatusEnum.AWAITINGFORAPPROVAL.toString());
 						statusEmplyee.add(SmidShgGroup.StatusEnum.REJECTED.toString());
+						statusEmplyee.add(SmidShgGroup.StatusEnum.CREATED.toString());
+						statusEmplyee.add(SmidShgGroup.StatusEnum.DELETED.toString());
+						statusEmplyee.add(SmidShgGroup.StatusEnum.DRAFTED.toString());
+						statusEmplyee.add(SmidShgGroup.StatusEnum.UPDATED.toString());
 					} else {
 						statusEmplyee.add(shg.getStatus().toString());
 					}					

@@ -38,7 +38,9 @@ public class CommonConstants {
 	public static final String EOFFICE_HIERARCHY = "FileHierarchy";
 	public static final String EOFFICE_EXCEPTION_CODE = "EOFFICE_EXCEPTION";
 	public static final String DEPARTMENT_ID="departmentId";
-	
-
+	public static final String MDMS_STARTDATE = "startingDate";
+	public static final String MDMS_FINACIALYEAR_PATH = "$.MdmsRes.egf-master.FinancialYear[?(@.code==\"{}\")]";
+	public static final String MDMS_ENDDATE = "endingDate";
+    public static final String FINANCE_EXCEPTION_CODE="FINANCE_EXCEPTION";
 }
 

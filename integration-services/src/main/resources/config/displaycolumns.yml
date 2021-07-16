@@ -1,0 +1,21 @@
+ColumnMaps:
+ tenantId: [ch.chandigarh]
+ columnConfig:
+   - applicationType: PETNOC
+     endPoint: /pm-services/noc/_get
+     parameter1: fromDate
+     parameter1Format: Long
+     parameter2: toDate
+     parameter2Format: Lonf
+   - applicationType: HORTICULTURE
+     endPoint: /hc-services/serviceRequest/_get
+     parameter1: fromDate
+     parameter1Format: Long
+     parameter2: toDate
+     parameter2Format: Lonf  
+   - applicationType: ECHALLAN
+     endPoint: /ec-services/violation/_search
+     parameter1: fromDate
+     parameter1Format: yyyy-mm-dd
+     parameter2: toDate
+     parameter2Format: yyyy-mm-dd     
